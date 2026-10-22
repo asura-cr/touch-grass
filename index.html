@@ -36,9 +36,6 @@
         }
 
         .actions {
-            position: absolute;
-            top: 20px;
-            right: 20px;
             display: flex;
             align-items: center;
             gap: 12px;
@@ -69,7 +66,7 @@
         .exp-bar {
             width: 100%;
             height: 10px;
-            background-color: #646464;
+            background: #646464;
             border-radius: 4px;
             overflow: hidden;
         }
@@ -123,41 +120,180 @@
             fill: #000000;
             flex-shrink: 0;
         }
+
+        .hud {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            align-items: center;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .hud .wooden-card {
+            pointer-events: auto;
+        }
+
+        .nav {
+            position: fixed;
+            bottom: 24px;
+            align-items: center;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            border: 3.5px solid #23513b;
+            background: linear-gradient(180deg, #fbf7ee 0%, #ede1cc 100%);
+            border-radius: 16px;
+            padding: 6px 10px;
+            box-shadow: 0 4px 0 #3b2b1a, 0 6px 16px rgba(0,0,0,0.12);
+            z-index: 100;
+        }
+
+        .nav-b{
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: none;
+            border: none;
+            padding: 10px 22px 14px;
+            cursor: pointer;
+            border-radius: 28px;
+            color: #928370;
+            transition: all 0.2s ease-in-out;
+            ;
+
+            .nav-b:hover {
+                background: rgb(74,62,49);
+            }
+
+            .nav-b.active {
+                background:linear-gradient(180deg, #fbf7ee 0%, #ede1cc 100%);
+                color: #173b28;
+                box-shadow: inset 0 0 0 2px rgba(0,0,0,0.04);
+            }
+
+            .nav-b.active .active-indicator {
+                position:absolute;
+                bottom: 6px;
+                width: 26px;
+                height: 3px;
+                background: #21603f;
+                border-radius: 4px;
+            }
+            .icon-warp {
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .map-icon {
+                width: 24px;
+                height: 24px;
+                fill: currentColor;
+            }
+
+            .notif-dot {
+                position: absolute;
+                top: -2px;
+                right: -4px;
+                width: 8px;
+                height: 8px;
+                background: #c98836;
+                border-radius: 50%;
+                display: none;
+            }
+
+        }
     </style>
 </head>
 
 <body>
     <div class="map">
-        <img src="map.png" alt="Map"></img >
     </div>
-    <div class="wooden-card title">
-        <h1 class="gamefont">Touch Grass</h1>
-    </div>
-    <div class="actions">
-        <div class="wooden-card profile">
-            <img src="profile.jpg" alt="Profile Picture" class="profilepic">
-            <div class="profile-d">
-                <span class="gamefont" style="font-weight: bold;">Name</span>
-                <div class="level">
-                    <span class="gamefont">Level 1</span>
-                    <span class="gamefont xp">XP 10/100</span>
-                </div>
-                <div class="exp-bar">
-                    <div class="exp-bar-fill" style="width: 50%;">
+    <header class="hud">
+        <div class="wooden-card title">
+            <h1 class="gamefont">Touch Grass</h1>
+        </div>
+        <div class="actions">
+            <div class="wooden-card profile">
+                <img src="profile.jpg" alt="Profile Picture" class="profilepic">
+                <div class="profile-d">
+                    <span class="gamefont" style="font-weight: bold;">Name</span>
+                    <div class="level">
+                        <span class="gamefont">Level 1</span>
+                        <span class="gamefont xp">XP 10/100</span>
+                    </div>
+                    <div class="exp-bar">
+                        <div class="exp-bar-fill" style="width: 50%;">
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
 
-        <button class="wooden-card settings">
+            <button class="wooden-card settings">
                 <svg class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="M793.6 678.4c29.866667-51.2 81.066667-76.8 132.266667-72.533333 8.533333-29.866667 12.8-64 12.8-98.133334 0-29.866667-4.266667-59.733333-8.533334-85.333333-51.2 8.533333-106.666667-21.333333-136.533333-72.533333-29.866667-51.2-25.6-115.2 8.533333-153.6-46.933333-42.666667-98.133333-72.533333-157.866666-93.866667-17.066667 51.2-68.266667 85.333333-132.266667 85.333333s-110.933333-34.133333-132.266667-85.333333c-59.733333 21.333333-110.933333 55.466667-157.866666 98.133333 34.133333 42.666667 38.4 102.4 8.533333 153.6-29.866667 51.2-85.333333 76.8-136.533333 68.266667-4.266667 29.866667-8.533333 59.733333-8.533334 89.6 0 34.133333 4.266667 64 12.8 93.866667 51.2-4.266667 102.4 21.333333 132.266667 72.533333 25.6 51.2 25.6 106.666667-4.266667 149.333333 46.933333 42.666667 98.133333 72.533333 157.866667 89.6 21.333333-46.933333 68.266667-76.8 128-76.8s106.666667 29.866667 128 76.8c59.733333-17.066667 110.933333-51.2 157.866667-89.6-29.866667-42.666667-34.133333-98.133333-4.266667-149.333333z m-281.6 17.066667c-102.4 0-183.466667-81.066667-183.466667-183.466667S409.6 328.533333 512 328.533333s183.466667 81.066667 183.466667 183.466667-81.066667 183.466667-183.466667 183.466667z"
                         data-spm-anchor-id="a313x.search_index.0.i0.40a93a81w1AXrL"></path>
                 </svg>
+            </button>
+        </div>
+    </header>
+
+    <nav class="nav">
+
+        <!-- Map -->
+        <button class="nav-b active">
+            <div class="icon-warp">
+                <svg class="map-icon" viewBox="0 0 24 24">
+                    <path
+                        d="M9 3L3 6v14l6-3 6 3 6-3V3l-6 3-6-3zM5 7.3l3-1.5v11.4l-3 1.5V7.3zm5.5 9.9V5.8l5 2.5v11.4l-5-2.5zm6.5 0V5.8l2-1v11.4l-2 1z" />
+                </svg>
+                <span class="notif-dot"></span>
+            </div>
+            <span class="gamefont nav-text">Map</span>
+            <span class="active-ind">Map</span>
         </button>
-    </div>
+
+        <!-- Jounal -->
+        <button class="nav-b">
+            <div class="icon-warp">
+                <svg class="map-icon" viewBox="0 0 24 24">
+                    <path
+                        d="M19 3H7c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 14H9v-2h8v2zm0-4H9v-2h8v2zm0-4H9V7h8v2z" />
+                </svg>
+            </div>
+            <span class="gamefont nav-text">Journal</span>
+        </button>
+
+        <!-- Friends -->
+        <button class="nav-b">
+            <div class="icon-warp">
+                <svg class="map-icon" viewBox="0 0 24 24">
+                    <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+                </svg>
+            </div>
+            <span class="gamefont nav-text">Friends</span>
+        </button>
+
+        <!-- Achievements / or some shit ill change lter-->
+                 <button class="nav-b">
+            <div class="icon-warp">
+                <svg class="map-icon" viewBox="0 0 24 24">
+                    <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+                </svg>
+            </div>
+            <span class="gamefont nav-text">Achievements</span>
+        </button>
+    </nav>
 </body>
 
 </html>
