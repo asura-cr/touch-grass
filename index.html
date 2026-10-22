@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Touch Grass</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@600;700;800&display=swap"
+        rel="stylesheet">
     <style>
         body {
             font-family: 'Nunito', sans-serif;
@@ -17,21 +20,30 @@
         }
 
         .wooden-card {
-            background:linear-gradient(180deg, #fbf7ee 0%, #ede1cc 100%);
+            background: linear-gradient(180deg, #fbf7ee 0%, #ede1cc 100%);
             border: 2px solid #5a442e;
-            box-shadow: 0 4px 0 #3b2b1a, 0 8px 16px rgba(45,30,15,0.18);
+            box-shadow: 0 4px 0 #3b2b1a, 0 8px 16px rgba(45, 30, 15, 0.18);
             position: relative;
             border-radius: 16px;
             padding: 10px 20px;
-            display:flex;
-            flex-direction:column;
-            justify-content:center;
-            cursor:pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            cursor: pointer;
             transition: transform 150ms ease;
             transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    
-        }   
 
+        }
+
+        .actions {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+        }
 
         .wooden-card.title {
             margin-right: auto;
@@ -40,15 +52,10 @@
         }
 
         .wooden-card.profile {
-            position: absolute;
-            top: 20px;
-            right: 25%;
-            height: fit-content;
+            width: 220px;
             font-size: 0.6rem;
-            box-shadow: none;
-            border: none;
             flex-direction: row;
-            align-items:center;
+            align-items: center;
             gap: 10px;
         }
 
@@ -74,11 +81,9 @@
             transition: width 0.3s ease-in-out;
         }
 
-        
-
         .wooden-card:active {
             transform: translateY(-1px);
-            box-shadow: 0 2px 0 #3b2d1d, 0 4px 8px rgba(45,30,15,0.15);
+            box-shadow: 0 2px 0 #3b2d1d, 0 4px 8px rgba(45, 30, 15, 0.15);
         }
 
         .wooden-card:hover {
@@ -86,36 +91,73 @@
             box-shadow: 0 2px 0 #3e2d1d;
         }
 
-        .avatar {
+        .profilepic {
             width: 50px;
             height: 50px;
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid #5a442e;
+            flex-shrink: 0;
+            margin-right: auto;
         }
 
+        .profile-d {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            width: 100%;
+            margin-right: auto;
+        }
+
+        .wooden-card.settings {
+            width: auto;
+            padding: 8px 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .wooden-card.settings .icon {
+            width: 20px;
+            height: 20px;
+            fill: #000000;
+            flex-shrink: 0;
+        }
     </style>
 </head>
+
 <body>
     <div class="map">
+        <img src="map.png" alt="Map"></img >
     </div>
     <div class="wooden-card title">
         <h1 class="gamefont">Touch Grass</h1>
     </div>
-    <div class="wooden-card profile">
-        <img src="profile.jpg" alt="Profile Picture" class="profilepic">
-        <div class="profile">
-            <span class="gamefont" style="font-weight: bold;">Name</span>
-            <div class="level">
-                <span class="gamefont">Level 1</span>
-                <span class="gamefont xp">XP 10/100</span>
-            </div>
-            <div class="exp-bar">
-            <div class="exp-bar-fill" style="width: 50%;">
+    <div class="actions">
+        <div class="wooden-card profile">
+            <img src="profile.jpg" alt="Profile Picture" class="profilepic">
+            <div class="profile-d">
+                <span class="gamefont" style="font-weight: bold;">Name</span>
+                <div class="level">
+                    <span class="gamefont">Level 1</span>
+                    <span class="gamefont xp">XP 10/100</span>
+                </div>
+                <div class="exp-bar">
+                    <div class="exp-bar-fill" style="width: 50%;">
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
+
+        <button class="wooden-card settings">
+                <svg class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M793.6 678.4c29.866667-51.2 81.066667-76.8 132.266667-72.533333 8.533333-29.866667 12.8-64 12.8-98.133334 0-29.866667-4.266667-59.733333-8.533334-85.333333-51.2 8.533333-106.666667-21.333333-136.533333-72.533333-29.866667-51.2-25.6-115.2 8.533333-153.6-46.933333-42.666667-98.133333-72.533333-157.866666-93.866667-17.066667 51.2-68.266667 85.333333-132.266667 85.333333s-110.933333-34.133333-132.266667-85.333333c-59.733333 21.333333-110.933333 55.466667-157.866666 98.133333 34.133333 42.666667 38.4 102.4 8.533333 153.6-29.866667 51.2-85.333333 76.8-136.533333 68.266667-4.266667 29.866667-8.533333 59.733333-8.533334 89.6 0 34.133333 4.266667 64 12.8 93.866667 51.2-4.266667 102.4 21.333333 132.266667 72.533333 25.6 51.2 25.6 106.666667-4.266667 149.333333 46.933333 42.666667 98.133333 72.533333 157.866667 89.6 21.333333-46.933333 68.266667-76.8 128-76.8s106.666667 29.866667 128 76.8c59.733333-17.066667 110.933333-51.2 157.866667-89.6-29.866667-42.666667-34.133333-98.133333-4.266667-149.333333z m-281.6 17.066667c-102.4 0-183.466667-81.066667-183.466667-183.466667S409.6 328.533333 512 328.533333s183.466667 81.066667 183.466667 183.466667-81.066667 183.466667-183.466667 183.466667z"
+                        data-spm-anchor-id="a313x.search_index.0.i0.40a93a81w1AXrL"></path>
+                </svg>
+        </button>
+    </div>
 </body>
+
 </html>
