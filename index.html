@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Touch Grass</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+        }
+
+        .gamefont {
+            font-family: 'Fredoka', cursive, sans-serif;
+        }
+
+        .wooden-card {
+            background:linear-gradient(180deg, #fbf7ee 0%, #ede1cc 100%);
+            border: 2px solid #5a442e;
+            box-shadow: 0 4px 0 #3b2b1a, 0 8px 16px rgba(45,30,15,0.18);
+            position: relative;
+            border-radius: 16px;
+            padding: 10px 20px;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            cursor:pointer;
+            transition: transform 150ms ease;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    
+        }   
+
+
+        .wooden-card.title {
+            margin-right: auto;
+            width: fit-content;
+
+        }
+
+        .wooden-card.profile {
+            position: absolute;
+            top: 20px;
+            right: 25%;
+            height: fit-content;
+            font-size: 0.6rem;
+            box-shadow: none;
+            border: none;
+            flex-direction: row;
+            align-items:center;
+            gap: 10px;
+        }
+
+        .level {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .exp-bar {
+            width: 100%;
+            height: 10px;
+            background-color: #646464;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .exp-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #41bf14 0%, #055203 100%);
+            border-radius: 4px;
+            transition: width 0.3s ease-in-out;
+        }
+
+        
+
+        .wooden-card:active {
+            transform: translateY(-1px);
+            box-shadow: 0 2px 0 #3b2d1d, 0 4px 8px rgba(45,30,15,0.15);
+        }
+
+        .wooden-card:hover {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 #3e2d1d;
+        }
+
+        .avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #5a442e;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="map">
+    </div>
+    <div class="wooden-card title">
+        <h1 class="gamefont">Touch Grass</h1>
+    </div>
+    <div class="wooden-card profile">
+        <img src="profile.jpg" alt="Profile Picture" class="profilepic">
+        <div class="profile">
+            <span class="gamefont" style="font-weight: bold;">Name</span>
+            <div class="level">
+                <span class="gamefont">Level 1</span>
+                <span class="gamefont xp">XP 10/100</span>
+            </div>
+            <div class="exp-bar">
+            <div class="exp-bar-fill" style="width: 50%;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
