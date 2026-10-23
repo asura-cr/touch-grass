@@ -13,38 +13,49 @@
     <style>
         body {
             font-family: 'Nunito', sans-serif;
+            margin: 0;
         }
 
         .gamefont {
             font-family: 'Fredoka', cursive, sans-serif;
         }
 
+        .map {
+            width: 100vw;
+            height: 100vh;
+        }
+
         .wooden-card {
             background: linear-gradient(180deg, #fbf7ee 0%, #ede1cc 100%);
             border: 2px solid #5a442e;
             box-shadow: 0 4px 0 #3b2b1a, 0 8px 16px rgba(45, 30, 15, 0.18);
-            position: relative;
             border-radius: 16px;
             padding: 10px 20px;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            cursor: pointer;
-            transition: transform 150ms ease;
-            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 150ms cubic-bezier(0.4, 0, 0.2, 1);
 
         }
+
+        button.wooden-card {
+            cursor: pointer;
+        }
+
+        button.wooden-card:hover {
+            transform: translateY(2px);
+        }
+
+        button.wooden-card:active {
+            transform: translateY(-1px);
+            box-shadow: 0 2px 0 #3b2d1d, 0 4px 8px rgba(45, 30, 15, 0.15);
+        }
+
 
         .actions {
             display: flex;
             align-items: center;
             gap: 12px;
-
-        }
-
-        .wooden-card.title {
-            margin-right: auto;
-            width: fit-content;
 
         }
 
@@ -56,15 +67,22 @@
             gap: 10px;
         }
 
+        .wooden-card:active {
+            transform: translateY(-1px);
+            box-shadow: 0 2px 0 #3b2d1d, 0 4px 8px rgba(45, 30, 15, 0.15);
+        }
+
+        .wooden-card:hover {
+            transform: translateY(2px);
+        }
+
         .level {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            width: 100%;
         }
 
         .exp-bar {
-            width: 100%;
             height: 10px;
             background: #646464;
             border-radius: 4px;
@@ -74,19 +92,9 @@
         .exp-bar-fill {
             height: 100%;
             background: linear-gradient(90deg, #41bf14 0%, #055203 100%);
-            border-radius: 4px;
             transition: width 0.3s ease-in-out;
         }
 
-        .wooden-card:active {
-            transform: translateY(-1px);
-            box-shadow: 0 2px 0 #3b2d1d, 0 4px 8px rgba(45, 30, 15, 0.15);
-        }
-
-        .wooden-card:hover {
-            transform: translateY(2px);
-            box-shadow: 0 2px 0 #3e2d1d;
-        }
 
         .profilepic {
             width: 50px;
@@ -95,23 +103,16 @@
             object-fit: cover;
             border: 2px solid #5a442e;
             flex-shrink: 0;
-            margin-right: auto;
         }
 
         .profile-d {
             display: flex;
             flex-direction: column;
             flex-grow: 1;
-            width: 100%;
-            margin-right: auto;
         }
 
         .wooden-card.settings {
-            width: auto;
             padding: 8px 12px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
         }
 
         .wooden-card.settings .icon {
@@ -129,7 +130,6 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            align-items: center;
             pointer-events: none;
             z-index: 1000;
         }
@@ -141,7 +141,6 @@
         .nav {
             position: fixed;
             bottom: 24px;
-            align-items: center;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
@@ -158,7 +157,6 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
             background: none;
             border: none;
             padding: 10px 22px 14px;
@@ -191,8 +189,6 @@
         .icon-warp {
             position: relative;
             display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
         .map-icon {
@@ -214,7 +210,7 @@
 
 
         .level-pin {
-            display: inline-flex;
+            display: flex;
             align-items: center;
             flex-direction: column;
             cursor: pointer;
@@ -270,27 +266,14 @@
             right: 4px;
         }
 
-        .peg {
-            width: 8px;
-            height: 12px;
-            background: #8b562a;
-            border: 2px solid #5a381e;
-
-        }
-
         .node {
-            position: relative;
-            width: 72px;
-            height: 72px;
+            height: 50px;
             border-radius: 50%;
             background: none;
             border: none;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             padding: 0;
-            outline: none;
+            aspect-ratio: 1/1;
         }
 
         .rim {
@@ -306,8 +289,8 @@
         }
 
         .face {
-            width: 52px;
-            height: 52px;
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
             background: radial-gradient(circle at 40% 35%, #e8a327 0%, #cb8412 70%, #a46408 100%);
             display: flex;
@@ -326,10 +309,134 @@
         }
 
 
-        .map {
-            position: relative;
-            width: 100vw;
-            height: 100vh;
+        .mission-card {
+            position: absolute;
+            top: 50%;
+            right: 0%;
+            transform: translateX(-50%) translateY(calc(-50% + 120%));
+            background: linear-gradient(180deg, #fbf7ee 0%, #ede1cc 100%);
+            border: 2px solid #234c38;
+            box-shadow: 0 4px 0 #3b2b1a, 0 8px 16px rgba(45, 30, 15, 0.18);
+            border-radius: 20px;
+            padding: 16px 16px 20px;
+            display: flex;
+            flex-direction: column;
+            z-index: 100;
+            opacity: 0;
+            pointer-events: none;
+            width: 320px;
+            transition: transform 0.32s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s ease;
+        }
+
+        .mission-card.open {
+            transform: translateX(-50%) translateY(-50%);
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .mission-thumb-wrap {
+            height: 120px;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            overflow: hidden;
+            border: 1px solid #234c3733;
+            background: #d4c3a8;
+        }
+
+        .mission-thumb {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .mission-info {
+            display: flex;
+            flex-direction: column;
+            padding: 14px 6px 0;
+        }
+
+        .lvlbadge {
+            color: #3b533f;
+            font-size: 0.75rem;
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+
+        .mission-info .title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #173b28;
+            margin: 0;
+        }
+
+        .dist-row {
+            display: flex;
+            align-items: center;
+            margin-top: 8px;
+            gap: 6px;
+            color: #7b6a56;
+        }
+
+        .dist-icon {
+            width: 16px;
+            height: 16px;
+            fill: #7b6a56;
+            flex-shrink: 0;
+        }
+
+        .dist-text {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .desc {
+            font-size: 0.9rem;
+            color: #5a442e;
+            margin: 12px 0 16px;
+            line-height: 1.4;
+        }
+
+
+        .reward {
+            background: #f9ebd3;
+            border: 1.5px solid #d1b895;
+            border-radius: 12px;
+            padding: 10px 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .leaf-icon {
+            width: 20px;
+            height: 20px;
+            fill: #41bf14;
+            flex-shrink: 0;
+        }
+
+        .reward-text {
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: black;
+        }
+
+        .start-btn {
+            background: linear-gradient(180deg, #377d52 0%, #225a38 100%);
+            border: 2px solid #234c38;
+            border-radius: 12px;
+            padding: 10px 20px;
+            color: white;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 150ms ease;
+        }
+
+        .start-btn:active {
+            transform: translateY(3px);
         }
     </style>
 </head>
@@ -426,7 +533,6 @@
             <span class="gamefont sign-text">1. idk</span>
         </div>
 
-        <div class="peg"></div>
 
         <button class="node">
             <div class="rim">
@@ -436,6 +542,41 @@
             </div>
         </button>
     </div>
+
+
+    <div class="mission-card" id="missioncard">
+        <div class="mission-thumb-wrap">
+            <img id="mission-thumb" src="" alt="MissionLocation" class="mission-thumb" />
+        </div>
+
+        <div class="mission-info">
+            <span class="gamefont lvlbadge" id="lvlbadge"></span>
+            <h2 class="gamefont title" id="title"></h2>
+        </div>
+
+        <div class="dist-row">
+            <svg class="dist-icon" viewBox="0 0 24 24">
+                <path
+                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+            </svg>
+            <span class="dist-text" id="distance"></span>
+        </div>
+
+        <p class="desc" id="desc"></p>
+
+        <div class="reward">
+            <svg class="leaf-icon" viewBox="0 0 24 24">
+                <path
+                    d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.22V8c4.25-1 8-1 8-1s-3.5 1.5-6.5 3c-.5.25-.8.5-1 .78C8.5 16 11 18 16 17c1.5-.3 3.5-1.5 4.5-2.5-1 .5-2 1-3.5 1.5z" />
+            </svg>
+            <span class="reward-text" id="xp"></span>
+        </div>
+
+        <button class="start-btn" id="startbtn">
+            <span class="gamefont">Accept</span>
+        </button>
+    </div>
 </body>
+
 
 </html>
