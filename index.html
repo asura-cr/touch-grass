@@ -149,11 +149,11 @@
             background: linear-gradient(180deg, #fbf7ee 0%, #ede1cc 100%);
             border-radius: 16px;
             padding: 6px 10px;
-            box-shadow: 0 4px 0 #3b2b1a, 0 6px 16px rgba(0,0,0,0.12);
+            box-shadow: 0 4px 0 #3b2b1a, 0 6px 16px rgba(0, 0, 0, 0.12);
             z-index: 100;
         }
 
-        .nav-b{
+        .nav-b {
             position: relative;
             display: flex;
             flex-direction: column;
@@ -166,50 +166,170 @@
             border-radius: 28px;
             color: #928370;
             transition: all 0.2s ease-in-out;
-            ;
+        }
 
-            .nav-b:hover {
-                background: rgb(74,62,49);
-            }
 
-            .nav-b.active {
-                background:linear-gradient(180deg, #fbf7ee 0%, #ede1cc 100%);
-                color: #173b28;
-                box-shadow: inset 0 0 0 2px rgba(0,0,0,0.04);
-            }
+        .nav-b:hover {
+            background: rgb(74, 62, 49);
+        }
 
-            .nav-b.active .active-indicator {
-                position:absolute;
-                bottom: 6px;
-                width: 26px;
-                height: 3px;
-                background: #21603f;
-                border-radius: 4px;
-            }
-            .icon-warp {
-                position: relative;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
+        .nav-b.active {
+            background: linear-gradient(180deg, #fbf7ee 0%, #ede1cc 100%);
+            color: #173b28;
+            box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.04);
+        }
 
-            .map-icon {
-                width: 24px;
-                height: 24px;
-                fill: currentColor;
-            }
+        .nav-b.active .active-ind {
+            position: absolute;
+            bottom: 6px;
+            width: 26px;
+            height: 3px;
+            background: #21603f;
+            border-radius: 4px;
+        }
 
-            .notif-dot {
-                position: absolute;
-                top: -2px;
-                right: -4px;
-                width: 8px;
-                height: 8px;
-                background: #c98836;
-                border-radius: 50%;
-                display: none;
-            }
+        .icon-warp {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
+        .map-icon {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
+        .notif-dot {
+            position: absolute;
+            top: -2px;
+            right: -4px;
+            width: 8px;
+            height: 8px;
+            background: #c98836;
+            border-radius: 50%;
+            display: none;
+        }
+
+
+        .level-pin {
+            display: inline-flex;
+            align-items: center;
+            flex-direction: column;
+            cursor: pointer;
+            user-select: none;
+            transition: ease-in-out 0.2s;
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            translate: -50% 0;
+        }
+
+        .level-pin:hover {
+            transform: translateY(-2px) scale(1.02);
+        }
+
+        .level-pin:active {
+            transform: translateY(-1px) scale(0.98);
+        }
+
+        .wooden-sign {
+            position: relative;
+            background: #e8bc78;
+            border: 3px solid #5a381e;
+            border-radius: 12px;
+            padding: 8px 24px;
+        }
+
+        .nail {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background: #5a381e;
+            border-radius: 50%;
+        }
+
+        .nail.tl {
+            top: 8px;
+            left: 4px;
+        }
+
+        .nail.tr {
+            top: 8px;
+            right: 4px;
+        }
+
+        .nail.bl {
+            bottom: 8px;
+            left: 4px;
+        }
+
+        .nail.br {
+            bottom: 8px;
+            right: 4px;
+        }
+
+        .peg {
+            width: 8px;
+            height: 12px;
+            background: #8b562a;
+            border: 2px solid #5a381e;
+
+        }
+
+        .node {
+            position: relative;
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            outline: none;
+        }
+
+        .rim {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: linear-gradient(180deg, #fff2ad 0%, #f3ba3a 40%, #c48011 85%, #844c06 100%);
+            border: 3px solid #5a381e;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+
+        }
+
+        .face {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 40% 35%, #e8a327 0%, #cb8412 70%, #a46408 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #5a381e;
+
+        }
+
+
+        .node-no {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #ffffff;
+
+        }
+
+
+        .map {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
         }
     </style>
 </head>
@@ -260,7 +380,7 @@
                 <span class="notif-dot"></span>
             </div>
             <span class="gamefont nav-text">Map</span>
-            <span class="active-ind">Map</span>
+            <span class="active-ind"></span>
         </button>
 
         <!-- Jounal -->
@@ -278,22 +398,44 @@
         <button class="nav-b">
             <div class="icon-warp">
                 <svg class="map-icon" viewBox="0 0 24 24">
-                    <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+                    <path
+                        d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" />
                 </svg>
             </div>
             <span class="gamefont nav-text">Friends</span>
         </button>
 
         <!-- Achievements / or some shit ill change lter-->
-                 <button class="nav-b">
+        <button class="nav-b">
             <div class="icon-warp">
                 <svg class="map-icon" viewBox="0 0 24 24">
-                    <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+                    <path
+                        d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" />
                 </svg>
             </div>
             <span class="gamefont nav-text">Achievements</span>
         </button>
     </nav>
+
+    <div class="level-pin">
+        <div class="wooden-sign">
+            <span class="nail tl"></span>
+            <span class="nail tr"></span>
+            <span class="nail bl"></span>
+            <span class="nail br"></span>
+            <span class="gamefont sign-text">1. idk</span>
+        </div>
+
+        <div class="peg"></div>
+
+        <button class="node">
+            <div class="rim">
+                <div class="face">
+                    <span class="gamefont node-no">1</span>
+                </div>
+            </div>
+        </button>
+    </div>
 </body>
 
 </html>
