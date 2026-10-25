@@ -81,7 +81,7 @@ button.wooden-card:active {
 }
 
 
-.profilepic {
+.pfp {
     width: 30px;
     height: 30px;
     border-radius: 50%;
@@ -520,4 +520,41 @@ button.wooden-card:active {
 .start-btn:disabled {
     opacity: 0.5;
     cursor: not-allowed;
+}
+
+.preview .jphoto {
+    width: 100%;
+    max-height: 150px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin: 6px 0;
+}
+
+#modal-body .pfp{
+    width: 80px;
+    height: 80px;
+}
+
+#modal-body input[type="text"],
+#modal-body textarea {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1.5px solid #d2ba99;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    box-sizing: border-box;
+    background: #f6e7cd;
+    margin: 8px 0;
+    font-family: inherit;
+}
+
+#modal-body .start-btn {
+    width: 100%;
+    margin-top: 8px;
+}
+
+.error{
+    color: #c92a2a;
+    font-size: 0.9rem;
+    min-height: 1rem;
 }
