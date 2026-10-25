@@ -1,8 +1,8 @@
 const Missions = [
-    {id: 1, title: "Mission 1", level: 1, distance: 100, desc: "This is the first mission.", xp: [20,40], thumb: "mission1.png", x: 20 , y: 45},
-    {id: 2, title: "Mission 2", level: 2, distance: 200, desc: "This is the second mission.", xp: [15,30], thumb: "mission2.png", x: 40 , y: 65},
-    {id: 3, title: "Mission 3", level: 3, distance: 300, desc: "This is the third mission.", xp: [25,50], thumb: "mission3.png", x: 60 , y: 85},
-    {id: 4, title: "Mission 4", level: 4, distance: 400, desc: "This is the fourth mission.", xp: [30,60], thumb: "mission4.png", x: 55 , y: 35},
+    {id: 1, title: "Mission 1", level: 1, distance: 100, desc: "This is the first mission.", xp: [20,40], thumb: "mission1.png", x: 50.1, y: 17.8},
+    {id: 2, title: "Mission 2", level: 2, distance: 200, desc: "This is the second mission.", xp: [15,30], thumb: "mission2.png", x: 78.7, y: 34.1},
+    {id: 3, title: "Mission 3", level: 3, distance: 300, desc: "This is the third mission.", xp: [25,50], thumb: "mission3.png", x: 78.3, y: 56.1},
+    {id: 4, title: "Mission 4", level: 4, distance: 400, desc: "This is the fourth mission.", xp: [30,60], thumb: "mission4.png", x: 73.8, y: 77.3},
 ];
 
 const Achievements = [];

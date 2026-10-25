@@ -6,10 +6,14 @@ body {
 .gamefont {
     font-family: 'Fredoka', cursive, sans-serif;
 }
+.map-img {
+    width: 100%;
+    height: fit-content;
+    object-fit: cover;
+}
 
-.map {
-    width: 100vw;
-    height: 100vh;
+.webkit-scrollbar {
+    background: taransparent;
 }
 
 .wooden-card {
