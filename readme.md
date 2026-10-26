@@ -22,11 +22,11 @@ Touch-Grass uses a similar idea by adding levels, missions and competition to so
 - Levels unlock in order, so players cannot skip ahead.
 - Clicking on a level pin opens a mission window showing the mission and its details.
 
-![alt text](accept.png)
+![mission window](/assets/accept.png)
 
 - After accepting a mission, the player can complete it using the complete button, which asks them to submit a photo and a journal entry.
 
-![alt text](complete-mission.png)
+![journal submission](/assets/complete-mission.png)
 
 - The submitted journal entry is saved in the player's journal, where they can look back at their completed missions.
 - In the future, journals will also be visible to friends when multiplayer is implemented.
