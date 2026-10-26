@@ -1,4 +1,4 @@
-# TOUCH-GRASS
+# [TOUCH-GRASS](https://touchgrass.dino.icu)
 
 Touch-Grass is a small browser game made to encourage people to go outside by making it more fun through game mechanics and competition. The idea is to turn going outside into something people actually want to do, rather than something they keep putting off.
 
