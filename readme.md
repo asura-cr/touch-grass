@@ -1,120 +1,78 @@
-# [TOUCH-GRASS](https://touchgrass.dino.icu)
+**# TOUCH-GRASS**
 
-Touch-Grass is a small browser game made to encourage people to go outside by making it more fun through game mechanics and competition. The idea is to turn going outside into something people actually want to do, rather than something they keep putting off.
-
-The game currently focuses on single-player missions, where players complete outdoor activities and document them through photos and journal entries. In the future, multiplayer will allow friends to compete with each other and encourage each other to spend more time outside.
+Touch-grass is a small browser game that is made to help go outside by providing more fun to the element by adding competitiiveness , since it is a multiplayer (not the current version) it encourages those involved to go real life more often
 
 > [!NOTE]
 > **AI DISCLAIMER**
-> - AI was used to help with choosing colors, debugging, and improving this README.
+> - AI was used to help with choosing colors and debugging
+
+
+**## Why This type of game**
+According to [Amo et al., European Journal of Information Systems, 2020]\([https://www.tandfonline.com/doi/full/10.1080/0960085X.2020.1808540](https://www.tandfonline.com/doi/full/10.1080/0960085X.2020.1808540)) ,  gamificiation elements such as points and leaderboards increase engagement and influence performance growth . This supports the use of a game based approach to motivate people to spend more time outdoors . By turning everyday outdoor activities into a competetive experience , the game aims to make exploring the real world more engaging and make them participate more constantly
+
+**### How it works**
+
+\- A player can progress one game level per day and no more than that
+\- A new level is unlocked in order each day
+\- Clicking on a level pin opens up a mission window that shows the mission and its details
+![alt text]\(accept.png)
 
 
 
-## Why This type of game
+\-  After accepting the mission you  can complete a mission by using the complete button which then asks you for a photo and a journal entry
+![alt text]\(complete-mission.png)
 
-According to [Amo et al., *European Journal of Information Systems*, 2020](https://doi.org/10.1080/0960085X.2020.1808540), gamification elements such as points and leaderboards can increase user engagement and influence performance growth.
+\- submitting the journal stores it in your journal where it is visible to you (and your friends in the future)
 
-Touch-Grass uses a similar idea by adding levels, missions and competition to something people normally wouldn't think of as a game. The goal is to make going outside more fun and give people a reason to do it more often, especially when playing with friends.
+**### Built With**
 
-## How it works
+\* ![HTML5]\([https://shields.io](https://shields.io))
+\* ![CSS3]\([https://shields.io](https://shields.io))
+\* ![JavaScript]\([https://shields.io](https://shields.io))
 
-- A player can progress by one level per day.
-- Levels unlock in order, so players cannot skip ahead.
-- Clicking on a level pin opens a mission window showing the mission and its details.
+**### How to Play**
 
-![mission window](/assets/accept.png)
+\- No installation is required to play as it is a browser game
 
-- After accepting a mission, the player can complete it using the complete button, which asks them to submit a photo and a journal entry.
+1\. **\*\*Play Online\*\*** : [Click Here](https://asura-cr.github.io/touch-grass)
+2\. **\*\*Play Locally\*\*** :&#x20;
+  \* Clone this repo or download the zip
+  \* Open the project folder
+  \* Open \`index.html\`to launch the game
 
-![journal submission](/assets/complete-mission.png)
+**### RoadMap**
 
-- The submitted journal entry is saved in the player's journal, where they can look back at their completed missions.
-- In the future, journals will also be visible to friends when multiplayer is implemented.
+\- [x] Initial Deployment
+\- [ ] Change from local storage to server based approach
+\- [ ] Add Multiplayer
+\- [ ] Achievements
+\- [ ] Real missions based on location
 
-## Built With
+**### Adding a mission**
 
-- ![HTML5](https://img.shields.io/badge/HTML5-orange)
-- ![CSS3](https://img.shields.io/badge/CSS3-blue)
-- ![JavaScript](https://img.shields.io/badge/JavaScript-yellow)
+Add an object to the \`Missions\` array in \`script.js\`
 
-## How to Play
+\`\`\`js&#x20;
+{id: 5, title: "sample", level: 100, distance: 9999, desc: "sample desc", xp:[99,999], thumb:"thumbnailsample.jpg", x:50 , y:50}
+\`\`\`
 
-No installation is required since Touch-Grass runs in the browser.
+**## Saved Data**
 
-1. **Play Online:** [Click Here](#)
-2. **Play Locally:**
-   - Clone this repo or download the ZIP file.
-   - Open the project folder.
-   - Open `index.html` in your browser.
+\- Data is currently saved in browser localStorage under the key \`tg\`:
 
-## RoadMap
-
-- [x] Initial deployment
-- [ ] Change from localStorage to server-based storage
-- [ ] Add multiplayer
-- [ ] Add achievements
-- [ ] Add missions based on location
-- [ ] Allow players to share journals with friends
-- [ ] Add leaderboards and other competitive features
-
-## Adding a mission
-
-Add an object to the `Missions` array in `script.js`.
-
-```js
+\`\`\`js&#x20;
 {
-  id: 5,
-  title: "sample",
-  level: 5,
-  distance: 100,
-  desc: "sample desc",
-  xp: [99, 999],
-  thumb: "thumbnailsample.jpg",
-  x: 50,
-  y: 50
+    player: { name: "Name", "pfp" : "", level: 1, xp: 0, xptonext: 100 },
+    activemission: null,
+    completedmissions: [],
+    achievements: [],
+    friends: [],
+    journal: []
 }
-```
+\`\`\`
 
-- `id`: Unique ID for the mission.
-- `title`: Name of the mission.
-- `level`: Level.
-- `distance`: Distance from user to mission location.
-- `desc`: Mission description.
-- `xp`: XP value.
-- `thumb`: Mission thumbnail image.
-- `x` and `y`: Position of the mission pin on the map.
 
-## Saved Data
 
-Data is currently saved in the browser's `localStorage` under the key `tg`.
 
-```js
-{
-  player: {
-    name: "Name",
-    pfp: "",
-    level: 1,
-    xp: 0,
-    xptonext: 100
-  },
-  activemission: null,
-  completedmissions: [],
-  achievements: [],
-  friends: [],
-  journal: []
-}
-```
 
-- `player`: Player details, level and XP.
-- `activemission`: The mission currently being played.
-- `completedmissions`: List of completed missions.
-- `achievements`: Unlocked achievements.
-- `friends`: Reserved for friend-related features.
-- `journal`: Saved journal entries.
-
-Currently, all data is stored locally in the browser. This means progress does not sync between devices, and clearing browser data can erase it. Server-based storage is planned for a future update.
-
-### Sources
-
-- CSS styling and design referencess
-  * https://uiverse.io/
+enhance this properly
