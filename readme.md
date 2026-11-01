@@ -1,4 +1,4 @@
-**# TOUCH-GRASS**
+# **TOUCH-GRASS**
 
 Touch-grass is a small browser game that is made to help go outside by providing more fun to the element by adding competitiiveness , since it is a multiplayer (not the current version) it encourages those involved to go real life more often
 
